@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
-import { Add_item, Add_item1, Add_item2 } from '../Actions';
+import { Add_item, Add_item1, Add_item2, Delete_item, Delete_item1, Delete_item2 } from '../Actions';
 import { useDispatch, useSelector } from 'react-redux';
-
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent'
+import Box from '@mui/material/Box';
+import DeleteIcon from '@mui/icons-material/Delete';
 function Home() {
   let state = useSelector(state => state.todoReducer.list)
   let state1 = useSelector(state => state.todoReducer1.list1)
@@ -17,7 +23,7 @@ function Home() {
   let [val2, setVal2] = useState("")
 
 
-  var container = document.getElementById("game1");
+  // var container = document.getElementById("game1");
 
   console.log(state2)
 
@@ -45,10 +51,10 @@ function Home() {
 
 
 
-  var html;
-  window.onload = function () {
-    html = document.getElementById('game1').innerHTML;
-  };
+  // var html;
+  // window.onload = function () {
+  //   html = document.getElementById('game1').innerHTML;
+  // };
 
 
   let add = (e) => {
@@ -116,62 +122,84 @@ function Home() {
   }
 
 
+
   return (
     <>
-
-      <div id="game1" style={{ marginTop: "20px" }}>
-        <div className="container1">
+<Grid container spacing={2} justifyContent="center" alignItems="center" sx={{ marginTop: "120px", }}>
 
 
-          <div style={{ background: "#101204" }} id="div2" onDrop={(e) => drop(e)} onDragOver={(e) => allowDrop(e)}>
+<Grid item sm={6} xs={12} md={6} lg={4}>
+
+    <Grid container justifyContent="center">
+    <Card sx={{ width: 450,background:"#101204" ,borderRadius:"25px"}} onDrop={(e) => drop(e)} onDragOver={(e) => allowDrop(e)}>
             <h4 style={{ color: "white", textIndent: "20px" }}>To Do</h4>
 
-            <form style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
-              {show1 === true ? " " : <> <input placeholder='Add Card' type='text' onChange={change} value={val} /> <button className='btn' onClick={x1}>X</button></>}
-              <button className='btn' onClick={add}>Add Card</button>
+            <form style={{ display: "flex", justifyContent: "center", marginTop: "10px" ,marginBottom:"60px",gap:"5px"}}>
+              {show1 === true ? " " : <> <input placeholder='Add Card' type='text' onChange={change} value={val} /> <Button color='error' size='small' variant='outlined' onClick={x1}>X</Button></>}
+              <Button color='success' variant='outlined' size="small" className='btn' onClick={add}>Add Card</Button>
             </form>
 
             {state.map((elem) => {
-              return <p className='p' key={elem.id} id={elem.id} draggable={true} onDragStart={(e) => drag(e)} >{elem.data}</p>
+              return <div  key={elem.id} id={elem.id} draggable={true} onDragStart={(e) => drag(e)} className='p'>
+               <p style={{marginLeft:"10px"}}>{elem.data}</p></div>
             })}
 
+</Card>
+         </Grid>
+</Grid>
+<Grid item sm={6} xs={12} md={6} lg={4}>
 
-
-          </div>
-
-
-
-          <div style={{ background: "#101204" }} id="div5" onDrop={(e) => drop(e)} onDragOver={(e) => allowDrop(e)}>
+    <Grid container justifyContent="center">
+    <Card sx={{ width: 450,background:"#101204" ,borderRadius:"25px"}} onDrop={(e) => drop(e)} onDragOver={(e) => allowDrop(e)}>
             <h4 style={{ color: "white", textIndent: "20px" }}>Doing</h4>
 
-            <form style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
-              {show2 === true ? "" : <>   <input placeholder='Add Card' type='text' onChange={change1} value={val1} /> <button className='btn' onClick={x2}>X</button></>}
-              <button className='btn' style={{ color: "white" }} onClick={add1}>Add Card</button>
+            <form style={{ display: "flex", justifyContent: "center", marginTop: "10px" ,gap:"5px",marginBottom:"60px"}}>
+              {show2 === true ? "" : <>   <input placeholder='Add Card' type='text' onChange={change1} value={val1} /> <Button color='error' size='small' variant='outlined' className='btn' onClick={x2}>X</Button></>}
+             
+              <Button color='success' variant='outlined' size="small"   onClick={add1}>Add Card</Button>
             </form>
 
             {state1.map((elem) => {
-              return <p className='p' key={elem.id} id={elem.id} draggable={true} onDragStart={(e) => drag(e)} >{elem.data}</p>
+              return <div  key={elem.id} id={elem.id} draggable={true} onDragStart={(e) => drag(e)} className='p'>
+              <p style={{marginLeft:"10px"}}>{elem.data}</p></div>
             })}
-          </div>
+            </Card>
+         </Grid>
+</Grid>
+<Grid item sm={6} xs={12} md={6} lg={4}>
 
-
-
-          <div style={{ background: "#101204" }} id="div6" onDrop={(e) => drop(e)} onDragOver={(e) => allowDrop(e)}>
+    <Grid container justifyContent="center">
+    <Card sx={{ width: 450,background:"#101204" ,borderRadius:"25px"}} onDrop={(e) => drop(e)} onDragOver={(e) => allowDrop(e)}>
             <h4 style={{ color: "white", textIndent: "20px" }}>Done</h4>
 
-            <form style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
-              {show3 === true ? "" : <> <input placeholder='Add Card' type='text' onChange={change2} value={val2} /><button onClick={x3} className='btn'>X</button> </>}
-              <button className='btn' onClick={add2}>Add Card</button>
+            <form style={{ display: "flex", justifyContent: "center", marginTop: "10px",gap:"5px",marginBottom:"60px" }}>
+              {show3 === true ? "" : <> <input placeholder='Add Card' type='text' onChange={change2} value={val2} /><Button onClick={x3}  size='small' color='error' variant='outlined'>X</Button> </>}
+              <Button variant='outlined' size='small' color='success' onClick={add2}>Add Card</Button>
             </form>
 
             {state2.map((elem) => {
-              return <p className='p' key={elem.id} id={elem.id} draggable={true} onDragStart={(e) => drag(e)} >{elem.data}</p>
+              return <div  key={elem.id} id={elem.id} draggable={true} onDragStart={(e) => drag(e)} className='p'>
+              <p style={{marginLeft:"10px"}}>{elem.data}</p></div>
             })}
+            </Card>
+         </Grid>
+</Grid>
 
-          </div>
+</Grid>
 
-        </div>
-      </div>
+
+     
+       
+
+
+      
+ 
+
+
+
+        
+       
+     
 
     </>
   )

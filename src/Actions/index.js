@@ -9,6 +9,13 @@ export const Add_item = (data) => {
     }
 
 }
+export const Delete_item = (data) => {
+    return {
+        type: "Delete_item",
+        id: data
+    }
+}
+
 export const Add_item1 = (data) => {
     return {
         type: "Add_item1",
@@ -20,6 +27,13 @@ export const Add_item1 = (data) => {
     }
 
 }
+export const Delete_item1 = (data) => {
+    return {
+        type: "Delete_item1",
+        id: data
+    }
+}
+
 
 export const Add_item2 = (data) => {
     return {
@@ -31,4 +45,11 @@ export const Add_item2 = (data) => {
         }
     }
 
+}
+
+export const Delete_item2 = (data) => {
+    return {
+        type: "Delete_item2",
+        id: data
+    }
 }

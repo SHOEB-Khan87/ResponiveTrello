@@ -1,49 +1,26 @@
-#div2 {
-  border: 1px solid black;
-  width: 400px;
-  height: 700px;
-  border-radius: 10px;
 
-}
 
-#div5 {
-  border: 1px solid black;
-  width: 400px;
-  height: 700px;
-  border-radius: 10px;
-}
-
-#div6 {
-  border: 1px solid black;
-  width: 400px;
-  height: 700px;
-  border-radius: 10px;
-}
-
-.container1 {
-  display: flex;
-  justify-content: center;
-  gap: 20px
-}
 
 .p {
   background-color: #22272b;
   color: white;
   display: flex;
-  justify-content: center;
+ justify-content: space-between;
+  align-items: center;
   border-radius: 30px;
-  padding: 5px;
+
   cursor: pointer;
+margin-bottom: 60px;
+
 }
 
-.btn {
-  background-color: black;
-  color: white;
-  border-radius: 15px;
-  cursor: pointer;
-  margin-left: 5px;
-}
 
 body {
-  background-color: lightblue;
+ background-image: url("https://d2k1ftgv7pobq7.cloudfront.net/images/backgrounds/gradients/snow.svg");
+ background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
+@media only screen and (max-width:900px) {
+  
 }

@@ -17,6 +17,12 @@ export const todoReducer = (state = initialState, action) => {
                 ]
             }
 
+            case "Delete_item":
+                let newList = state.list.filter(elem => elem.id !== action.id);
+                return {
+                    ...state,
+                    list: newList
+                }
 
 
 
@@ -45,6 +51,13 @@ export const todoReducer1 = (state = initialState1, action) => {
                     }
                 ]
             }
+
+            case "Delete_item1":
+                let newList = state.list1.filter(elem => elem.id !== action.id);
+                return {
+                    ...state,
+                    list1: newList
+                }
 
 
 
@@ -75,6 +88,12 @@ export const todoReducer2 = (state = initialState2, action) => {
                     }
                 ]
             }
+            case "Delete_item2":
+                let newList = state.list2.filter(elem => elem.id !== action.id);
+                return {
+                    ...state,
+                    list2: newList
+                }
 
 
 
