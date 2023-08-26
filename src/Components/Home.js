@@ -169,7 +169,7 @@ function Home() {
 <Grid item sm={6} xs={12} md={6} lg={4}>
 
     <Grid container justifyContent="center">
-    <Card sx={{ width: 450,background:"#101204" ,borderRadius:"25px"}} onDrop={(e) => drop(e)} onDragOver={(e) => allowDrop(e)}>
+    <Card sx={{ width: 450,background:"#101204" ,borderRadius:"25px"}}  onDrop={(e) => drop(e)} onDragOver={(e) => allowDrop(e)}>
             <h4 style={{ color: "white", textIndent: "20px" }}>Done</h4>
 
             <form style={{ display: "flex", justifyContent: "center", marginTop: "10px",gap:"5px",marginBottom:"60px" }}>
